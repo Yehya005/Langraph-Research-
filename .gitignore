@@ -1,0 +1,14 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+node_modules/
+dist/
+kaggle.json
+Api Key Gemini.txt
+*.txt.key
+backend/data/
+
+# course material (not part of the code)
+COE749 Project Guidelines.pdf
+Research assistant.txt
