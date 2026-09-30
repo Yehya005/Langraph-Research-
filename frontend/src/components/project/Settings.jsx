@@ -4,8 +4,6 @@ import { Button } from "../ui/primitives.jsx";
 import Workspace from "../layout/Workspace.jsx";
 
 const THEMES = [["auto", "System", Monitor], ["light", "Light", Sun], ["dark", "Dark", Moon]];
-const SOURCES = [["arxiv", "arXiv"], ["huggingface", "Hugging Face"], ["kaggle", "Kaggle"], ["semantic_scholar_key", "Semantic Scholar API key"]];
-
 export default function Settings({ theme, onTheme }) {
   const { view, state, config, actions } = useSession();
   const remove = async () => {
@@ -28,17 +26,17 @@ export default function Settings({ theme, onTheme }) {
         </section>
 
         <section className="card stack gap-3">
-          <h3 className="h2">Environment</h3>
-          <p className="text-sm subtle">Configured in <code>backend/.env</code>. Restart the app after changing it.</p>
+          <h3 className="h2">Research setup</h3>
+          <p className="text-sm subtle">The tools currently used to find, evaluate, and organize research for your projects.</p>
           {config ? (
             <dl className="kv">
-              <div className="kv__row"><dt>Language model</dt><dd>{config.provider} · {config.model}</dd></div>
-              {SOURCES.map(([k, label]) => (
-                <div key={k} className="kv__row"><dt>{label}</dt>
-                  <dd>{config.sources[k] ? "Available" : k === "semantic_scholar_key" ? "Not set (searches are rate-limited)" : "Not configured"}</dd></div>
-              ))}
+              <div className="kv__row"><dt>AI assistant</dt><dd>{config.model}</dd></div>
+              <div className="kv__row"><dt>Paper discovery</dt><dd>arXiv and Semantic Scholar</dd></div>
+              <div className="kv__row"><dt>Dataset discovery</dt>
+                <dd>Hugging Face{config.sources.kaggle ? " and Kaggle" : ""}</dd></div>
+              <div className="kv__row"><dt>Project storage</dt><dd>Saved automatically</dd></div>
             </dl>
-          ) : <p className="text-sm subtle">Loading…</p>}
+          ) : <p className="text-sm subtle">Loading research setup…</p>}
         </section>
 
         {view && (

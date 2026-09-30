@@ -13,7 +13,7 @@ import InterviewProgress from "./InterviewProgress.jsx";
 import { BriefApproval, MoreResearchApproval, ReportApproval, ScopeApproval } from "./ApprovalCard.jsx";
 
 const EXAMPLES = [
-  "Lightweight object detection for smart glasses that help visually impaired users",
+  "Evaluating retrieval-augmented generation for reducing hallucinations in healthcare chatbots",
   "Detecting fake news articles with NLP",
   "Sentiment analysis of Lebanese Arabic (Arabizi) tweets",
 ];
@@ -33,7 +33,7 @@ function StartScreen() {
   return (
     <div className="start">
       <div className="start__intro">
-        <BookOpenText size={28} aria-hidden />
+        <div className="start__mark"><BookOpenText size={25} aria-hidden /></div>
         <h2 className="h1">What would you like to research?</h2>
         <p className="subtle">Describe a project idea. The assistant interviews you, searches papers and datasets,
           evaluates them critically and writes a report you can refine.</p>
